@@ -31,12 +31,12 @@ As you can see, I'm spoiled (by all those bloatware). And turns out it is not th
 With `i3lock` + `xautolock`, it's pretty easy to get **wish** #1 by adding the following line to `.config/i3/config`
 
 ```
-exec --no-startup-id xautolock time 10 -locker i3lcok
+exec --no-startup-id xautolock -time 10 -locker i3lcok
 ```
 
 And if you want a wallpaper on the lock screen?
 ```
-exec --no-startup-id xautolock time 10 -locker "i3lcok -i ./wallpaper.png"
+exec --no-startup-id xautolock -time 10 -locker "i3lcok -i ./wallpaper.png"
 ```
 Note that quotes must be used for the `i3lock` commands for this to work. Moreover, `i3lock` only seems to take `png` files as input.
 
@@ -63,7 +63,7 @@ The blocking (`-n`) is important because it will help stopping `xautolock` keep 
 
 Finally, I updated `.config/i3/config` with the following line:
 ```
-exec --no-startup-id xautolock time 9 -locker ~/i3lcok.sh
+exec --no-startup-id xautolock -time 9 -locker ~/i3lcok.sh
 ```
 And voila. My **wishes** have been granted (thank you, whichever heavenly being that wrote the `man` pages.):
 
