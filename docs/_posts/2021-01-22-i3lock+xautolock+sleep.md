@@ -20,13 +20,13 @@ Recently started working with linux, specifically **ubuntu**, and <span style="c
 **i3wm** is very clean with the nice window layouts. And, when combined with **vim** (yuck, or so I thought a week ago) and **qutebrowser** (or **firefox** + vimium ff plugin) (is it just me or is **qutebrowser** slower than **firefox**...), noo mouse is needed! Moreover, there are tons of <span style="color:red">cu</span><span style="color:orange">st</span><span style="color:yellow">om</span><span style="color:green">iz</span><span style="color:blue">at</span><span style="color:indigo">io</span><span style="color:violet">ns</span>. Check out [my configs](https://github.com/oddsun/i2-starterpack), which is a fork of the coooool looking [i3-starterpack from addy-dclxvi](https://github.com/addy-dclxvi/i3-starterpack).
 
 # My **wishes**
-With the starterpack, it's pretty easy to get a decent looking i3 setup. However, what's troubling is the setup for `i3lock`. Coming from windows and mac, I have certain expectations and standards. Specifically, my **wishes** are the following:
+With the starterpack, it's pretty easy to get a decent looking i3 setup. However, what's troubling is the setup for `i3lock`. Coming from windows and mac, I have certain expectations and standards, or **wishes** in this case:
 1. autolock with timer,
 2. screen turns off/sleeps after some time (after autolock),
-3. if wakes while locked but not signed in, screen goes back to sleep after some time
-4. screensavers? (nah, who needs those).
+3. if wakes while locked but not signed in, screen goes back to sleep after some time,
+4. ~~screensavers? (nah, who needs those.)~~
 
-As you can see, I'm spoiled (by all those bloatware). And turns out **wishes** 1-3 are not that easily achieveable at the same time. That's the purpose of this post since I couldn't really find a good solution on the net.
+As you can see, I'm spoiled (by all those bloatware). And turns out it is not that easy to achieve all 3 **wishes** at the same time. That's the purpose of this post, acting as my personal <span style="color:DodgerBlue">genie</span> and grant me 3 **wishes**, since I couldn't really find a good <span style="color:DodgerBlue">genie</span> on the net.
 
 With `i3lock` + `xautolock`, it's pretty easy to get **wish** #1 by adding the following line to `.config/i3/config`
 
@@ -40,10 +40,10 @@ exec --no-startup-id xautolock time 10 -locker "i3lcok -i ./wallpaper.png"
 ```
 Note that quotes must be used for the `i3lock` commands for this to work. Moreover, `i3lock` only seems to take `png` files as input.
 
-All done right? Ha. Soon you will realize, the default standby/suspend/off happens after 10 mintues, which coincides with the autolock delay. So the autolock will trigger before the sleep happens and the screen doesn't shut off at all. Moreover, `xautolock` will keep trying to lock every 10 minutes even if it already locked. Again, this will reset the idle timer and prevent sleeping.
+All done right? Ha. Soon you will realize, the default standby/suspend/off happens after 10 mintues, which coincides with the autolock delay. So the autolock will trigger while the sleep is happening and the screen doesn't shut off at all. Moreover, `xautolock` will keep trying to lock every 10 minutes even if it already locked. Again, this will reset the idle timer and prevent sleeping.
 
 # The fix
-After scouring the internet for 2 days and trying various suggestions from various forums, my **wishes** still can't be fulfilled... BUT then I finally came across something useful. Guess where? The `man` pages for `i3lock` &#128514;. Under the section `DPMS`, there is some suggested code for getting exactly what I want. The code is pasted below (with my edits):
+After scouring the internet for 2 days and trying suggestions from various forums, my **wishes** are still left unfulfilled... BUT then I finally came across something useful. Guess where? The `man` pages for `i3lock` &#128514;. Under the section `DPMS`, there is some suggested code for getting exactly what I want. The code is pasted below (with my edits):
 ```
 #!/bin/sh
 revert() {
@@ -55,7 +55,7 @@ i3lock -n -i ./wallpaper.png
 revert
 ```
 
-To explain a bit: the script sets standby/suspend/off timer to 5 sections and then locks with a blocking `i3lock` (`-n` stands for `--nofork`, which blocks the call); then system is unlocked, the settings are reverted to standby/suspend/off timer of 600 sections (or 10 minutes). So I saved this script under `~/i3lock.sh` and made it executable with
+To explain a bit: the script sets standby/suspend/off timer to 5 seconds and then locks with a blocking `i3lock` (`-n` stands for `--nofork`, which blocks the call); then system is unlocked, the settings are reverted to standby/suspend/off timer of 600 sections (or 10 minutes). So I saved this script under `~/i3lock.sh` and made it executable with
 ```
 chmod u+x i3lock.sh
 ```
@@ -65,7 +65,7 @@ Finally, I updated `.config/i3/config` with the following line:
 ```
 exec --no-startup-id xautolock time 9 -locker ~/i3lcok.sh
 ```
-And voila. My **wishes** have been granted! (Thank you, whichever heavenly being that wrote the `man` pages.)
+And voila. My **wishes** have been granted (thank you, whichever heavenly being that wrote the `man` pages.):
 1. autolocks after 9 minutes (10 minutes is just problematic with the default DPMS config &#128561;)  &#10003;
 2. screens turns off 5 secs after autolocking  &#10003;
 3. if wakes without signin, screen turns off after 5 secs again  &#10003;
