@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "{{ title }}"
-date: {{ date_time }} -0500
+date: {{ date_time }}
 tags: 
 categories:
 description: " {{ description }} "

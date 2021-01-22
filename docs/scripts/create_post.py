@@ -4,11 +4,11 @@ import datetime
 
 def gen_template():
     ''' gen templates from cmd line inputs'''
-    fp = '../templates/blog_template.md'
+    fp = '../templates/post_template.md'
     with open(fp, 'r') as f:
         template = Template(f.read())
     title = input('title: ')
-    now = datetime.datetime.now()
+    now = datetime.datetime.utcnow()
     out_file = f'../_posts/{now.date()}-{title}.md'
     with open(out_file, 'w') as f:
         f.write(template.render(**{'title': title, 'date_time': now.strftime('%Y-%m-%d %H:%M:%S')}))

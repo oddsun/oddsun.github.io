@@ -7,7 +7,25 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   <link rel="shortcut icon" href="/assets/favicon.png">
-  <script src="https://use.fontawesome.com/9f9cb26d6f.js"></script>
+  <script type="text/javascript">
+    function setModifiedDate() {
+      if (document.getElementById('last-modified')) {
+	var page_path = encodeURIComponent("{{ page.path }}");
+        fetch(`https://api.github.com/repos/{{ site.github.owner_name }}/{{ site.github.repository_name }}/commits?path=docs/${page_path}&sha=blog`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((commits) => {
+            var modified = commits[0]['commit']['committer']['date'];//.slice(0,10);
+            if(modified.slice(0,10) != "{{ page.date | date: "%Y-%m-%d" }}") {
+		    console.log(modified.slice(0, 10));
+		var modified_date = new Date(modified).toDateString().slice(4).replace(/\s(\S*)$/, ', $1');
+              	document.getElementById('last-modified').textContent = "(Last Modified: " + modified_date + ")";
+            }
+          });
+      }
+    }
+  </script>
 
   {% if site.google_analytics %}
     {% include google-analytics.html %}

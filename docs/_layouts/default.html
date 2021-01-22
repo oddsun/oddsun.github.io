@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
 
   {% include head.html %}
-  <body>
+  <body onload="setModifiedDate()">
     {% include header.html %}
     <section class="main-content">
       {{ content }}
