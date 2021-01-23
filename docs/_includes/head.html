@@ -18,7 +18,6 @@
           .then((commits) => {
             var modified = commits[0]['commit']['committer']['date'];//.slice(0,10);
             if(modified.slice(0,10) != "{{ page.date | date: "%Y-%m-%d" }}") {
-		    console.log(modified.slice(0, 10));
 		var modified_date = new Date(modified).toDateString().slice(4).replace(/\s(\S*)$/, ', $1');
               	document.getElementById('last-modified').textContent = "(Last Modified: " + modified_date + ")";
             }

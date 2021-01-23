@@ -30,12 +30,12 @@ As you can see, I'm spoiled (by all those bloatware). And turns out it is not th
 
 With `i3lock` + `xautolock`, it's pretty easy to get **wish** #1 by adding the following line to `.config/i3/config`
 
-```
+```bash
 exec --no-startup-id xautolock -time 10 -locker i3lcok
 ```
 
 And if you want a wallpaper on the lock screen?
-```
+```bash
 exec --no-startup-id xautolock -time 10 -locker "i3lcok -i ./wallpaper.png"
 ```
 Note that quotes must be used for the `i3lock` commands for this to work. Moreover, `i3lock` only seems to take `png` files as input.
@@ -44,7 +44,7 @@ All done right? Ha. Soon you will realize, the default standby/suspend/off happe
 
 # The fix
 After scouring the internet for 2 days and trying suggestions from various forums, my **wishes** are still left unfulfilled... BUT then I finally came across something useful. Guess where? The `man` pages for `i3lock` &#128514;. Under the section `DPMS`, there is some suggested code for getting exactly what I want. The code is pasted below (with my edits):
-```
+{% highlight bash %}
 #!/bin/sh
 revert() {
   xset dpms 600 600 600
@@ -53,16 +53,16 @@ trap revert HUP INT TERM
 xset +dpms dpms 5 5 5
 i3lock -n -i ./wallpaper.png
 revert
-```
+{% endhighlight %}
 
 To explain a bit: the script sets standby/suspend/off timer to 5 seconds and then locks with a blocking `i3lock` (`-n` stands for `--nofork`, which blocks the call); then system is unlocked, the settings are reverted to standby/suspend/off timer of 600 sections (or 10 minutes). So I saved this script under `~/i3lock.sh` and made it executable with
-```
+```bash
 chmod u+x i3lock.sh
 ```
 The blocking (`-n`) is important because it will help stopping `xautolock` keep locking every 10 minutes.
 
 Finally, I updated `.config/i3/config` with the following line:
-```
+```bash
 exec --no-startup-id xautolock -time 9 -locker ~/i3lcok.sh
 ```
 And voila. My **wishes** have been granted (thank you, whichever heavenly being that wrote the `man` pages.):

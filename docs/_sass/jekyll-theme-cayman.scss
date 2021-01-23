@@ -1,5 +1,9 @@
 @import "normalize";
 @import "rouge-github";
+//@import "manni";
+//@import "paraiso-light";
+//@import "native";
+//@import "solarized-light";
 @import "variables";
 
 @mixin large {
@@ -141,6 +145,14 @@ a {
   font-size: 1.3rem;
 }
 
+.navbar-nav li {
+  border: 1px solid white;
+}
+
+.navbar-nav li:last-child {
+  border-left: none;
+}
+
 .post-list {
   list-style: none;
   padding: 0;
@@ -251,7 +263,8 @@ ul.fa-ul li a i {
   }
 
   @include large {
-    max-width: 64rem;
+    //max-width: 64rem;
+    max-width: 100rem;
     padding: 2rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem;
@@ -349,7 +362,8 @@ ul.fa-ul li a i {
     overflow: auto;
     font-size: 0.9rem;
     line-height: 1.45;
-    border-radius: 0.3rem;
+    //border-radius: 0.3rem;
+    border-radius: 0.5rem;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -461,3 +475,4 @@ ul.fa-ul li a i {
 .site-footer-credits {
   color: $blockquote-text-color;
 }
+

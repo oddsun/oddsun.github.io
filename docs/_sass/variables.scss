@@ -4,21 +4,35 @@ $medium-breakpoint: 42em !default;
 
 // Headers
 $header-heading-color: #fff !default;
-$header-bg-color: #159957 !default;
-$header-bg-color-secondary: #155799 !default;
+//$header-bg-color: #159957 !default;
+//$header-bg-color-secondary: #155799 !default;
+$header-bg-color: hsl(255,80%,50%) !default;
+$header-bg-color-secondary: hsl(204,80%,50%) !default;
 
 // Text
 $section-headings-color: #212529 !default;
 $body-text-color: #606c71 !default;
-$body-link-color: #0085a1 !default;
-$hover-title-color: #0085a1 !default;
+//$body-link-color: #0085a1 !default;
+//$hover-title-color: #0085a1 !default;
+$body-link-color: hsl(204,80%,50%) !default;
+$hover-title-color: hsl(204,80%,50%) !default;
 $blockquote-text-color: #819198 !default;
 
 // Code
 $code-bg-color: #f3f6fa !default;
+//$code-bg-color: #272822 !default;
+
+//$code-bg-color: #eee8d5 !default;
 $code-text-color: #567482 !default;
 
+//$code-bg-color: #e7e9db !default;
+//$code-text-color: #2f1e2e !default;
+
+//$code-bg-color: #000 !default;
+//$code-text-color: #fff !default;
+
 // Borders
-$border-color: #dce6f0 !default;
+//$border-color: #dce6f0 !default;
+$border-color: transparent !default;
 $table-border-color: #e9ebec !default;
 $hr-border-color: #eff0f1 !default;
