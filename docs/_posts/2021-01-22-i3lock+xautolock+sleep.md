@@ -21,7 +21,7 @@ Recently started working with linux, specifically **ubuntu**, and <span style="c
 # i3wm
 **i3wm** is very clean with the nice window layouts. And, when combined with **vim** (yuck, or so I thought a week ago) and **qutebrowser** (or **firefox** + vimium ff plugin) (is it just me or is **qutebrowser** slower than **firefox**...), noo mouse is needed! Moreover, there are tons of <span style="color:hsl(0,80%,75%)">cu</span><span style="color:hsl(51,80%,75%)">st</span><span style="color:hsl(102,80%,75%)">om</span><span style="color:hsl(153,80%,75%)">iz</span><span style="color:hsl(204,80%,75%)">at</span><span style="color:hsl(255,80%,75%)">io</span><span style="color:hsl(306,80%,75%)">ns</span>. Check out [my configs](https://github.com/oddsun/i2-starterpack), which is a fork of the coooool looking [i3-starterpack from addy-dclxvi](https://github.com/addy-dclxvi/i3-starterpack).
 
-# My wishes
+# My 3 Wishes
 With the starterpack, it's pretty easy to get a decent looking i3 setup. However, what's troubling is the setup for `i3lock`. Coming from windows and mac, I have certain expectations and standards, or **wishes** in this case:
 1. autolock with timer,
 2. screen turns off/sleeps after some time (after autolock),
