@@ -9,7 +9,7 @@ def gen_template():
         template = Template(f.read())
     title = input('title: ')
     now = datetime.datetime.utcnow()
-    out_file = f'../_posts/{now.date()}-{title}.md'
+    out_file = f'../_posts/{now.date()}-{title.replace(" ", "_")}.md'
     with open(out_file, 'w') as f:
         f.write(template.render(**{'title': title, 'date_time': now.strftime('%Y-%m-%d %H:%M:%S')}))
 
