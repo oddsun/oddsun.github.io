@@ -49,8 +49,9 @@ The reason I still want the layout of regular keyboard is because I'm still usin
 
 Though this is not a product review, I'll just leave my comments here in case it's useful to anyone (since it's hard to find any real/useful review online).
 1. The <span style="color:hsl(204,80%,75%)">bluetooth</span> works flawlessly (after it's properly setup on my rpi, which is a breeze if you know what you are doing, see below), 
-2. The <span style="color:hsl(15,80%,40%)">brown</span> switch is like all the other <span style="color:hsl(15,80%,40%)">brown</span> switches: soggy. Good thing I got the **Hot-swappable** version. I may <span style="color:hsl(153,80%,75%)">blue-switch</span> them out later.
-3. TKL is nice to carry around. Though I think the spacing between each key is still less than a regular keyboard. Not an expert here, so maybe this is common. Due to the tighter spacing, sometimes my reflexes may not hit the right key, though that's a minor issue.
+2. The <span style="color:hsl(15,80%,40%)">brown</span> switch is like all the other <span style="color:hsl(15,80%,40%)">brown</span> switches: *soggy*. Good thing I got the **Hot-swappable** version. I may <span style="color:hsl(153,80%,75%)">blue-switch</span> them out later.  
+>**Update/(Non)Pro-tip**: I realized typing with <span style="color:hsl(15,80%,40%)">brown</span> switches requires different technique from typing with <span style="color:hsl(153,80%,75%)">blue</span> switches. Typing with <span style="color:hsl(153,80%,75%)">blue</span> switches is like hit-and-run, because of the satisfying (or annoying) clicks. The same technique can't be used with <span style="color:hsl(15,80%,40%)">brown</span> switches, it will feel *soggy*. With <span style="color:hsl(15,80%,40%)">brown</span> switches, you really have to *lean* in. Then, it will feel just fine!
+3. TKL is nice to carry around. Though, I keep hitting adjacent keys. Maybe it's because the keyboard is really tall compared to regular keyboards.
 
 Now to the juicy &#127865; part.
 
