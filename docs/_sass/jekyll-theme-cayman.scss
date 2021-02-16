@@ -46,6 +46,12 @@ a {
   }
 }
 
+[data-lang]::before {
+  content: attr(data-lang);
+  display: block;
+  text-align: right;
+}
+
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
@@ -475,4 +481,5 @@ ul.fa-ul li a i {
 .site-footer-credits {
   color: $blockquote-text-color;
 }
+
 

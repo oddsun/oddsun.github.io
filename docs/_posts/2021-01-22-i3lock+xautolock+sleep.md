@@ -32,14 +32,14 @@ As you can see, I'm spoiled (by all those bloatware). And turns out it is not th
 
 With `i3lock` + `xautolock`, it's pretty easy to get **wish** #1 by adding the following line to `.config/i3/config`
 
-```bash
+{% highlight bash %}
 exec --no-startup-id xautolock -time 10 -locker i3lcok
-```
+{% endhighlight %}
 
 And if you want a wallpaper on the lock screen?
-```bash
+{% highlight bash %}
 exec --no-startup-id xautolock -time 10 -locker "i3lcok -i ./wallpaper.png"
-```
+{% endhighlight %}
 Note that quotes must be used for the `i3lock` commands for this to work. Moreover, `i3lock` only seems to take `png` files as input.
 
 All done right? Ha. Soon you will realize, the default standby/suspend/off happens after 10 mintues, which coincides with the autolock delay. So the autolock will trigger while the sleep is happening and the screen doesn't shut off at all. Moreover, `xautolock` will keep trying to lock every 10 minutes even if it already locked. Again, this will reset the idle timer and prevent sleeping.
@@ -58,15 +58,15 @@ revert
 {% endhighlight %}
 
 To explain a bit: the script sets standby/suspend/off timer to 5 seconds and then locks with a blocking `i3lock` (`-n` stands for `--nofork`, which blocks the call); then system is unlocked, the settings are reverted to standby/suspend/off timer of 600 sections (or 10 minutes). So I saved this script under `~/i3lock.sh` and made it executable with
-```bash
+{% highlight bash %}
 chmod u+x i3lock.sh
-```
+{% endhighlight %}
 The blocking (`-n`) is important because it will help stopping `xautolock` keep locking every 10 minutes.
 
 Finally, I updated `.config/i3/config` with the following line:
-```bash
+{% highlight bash %}
 exec --no-startup-id xautolock -time 9 -locker ~/i3lcok.sh
-```
+{% endhighlight %}
 And voila. My **wishes** have been granted (thank you, whichever heavenly being that wrote the `man` pages.):
 
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-left:-0em;color:hsl(102,80%,50%)">&#10003;</span> autolocks after 9 minutes (10 minutes is just problematic with the default DPMS config &#128561;)  
